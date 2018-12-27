@@ -2,5 +2,3 @@
 
 # JS30
 [30 Days Vanilla JS Challenge](https://javascript30.com/) by Wes Bos
-
-Day 01 - JavaScript Drum Kit
