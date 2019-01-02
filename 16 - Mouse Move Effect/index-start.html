@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow</title>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 contenteditable>🔥WOAH!</h1>
+  </div>
+
+  <style>
+  html {
+    color: black;
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+  }
+  </style>
+
+<script>
+  var hero = document.querySelector('.hero');
+  var text = hero.querySelector('h1');
+  var walk = 100  // 100px maximum offset
+
+  function shadow(e) {
+    var {offsetWidth: width, offsetHeight: height} = this;
+    var {offsetX: x, offsetY: y} = e;
+
+    // Recalculate x, y values from the offset position of child element
+    if (this !== e.target) {
+      x += e.target.offsetLeft;
+      y += e.target.offsetTop;
+    }
+    
+    // maximum 50px offset at either the x and y directions
+    var xWalk = Math.round((x / width * walk) - (walk / 2));
+    var yWalk = Math.round((y / height * walk) - (walk / 2));
+    
+    text.style.textShadow = `${xWalk}px ${yWalk}px 20px rgba(0,0,0,.5)` 
+  }
+  
+  hero.addEventListener('mousemove', shadow);
+</script>
+</body>
+</html>

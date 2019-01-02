@@ -37,7 +37,7 @@
 
   function addItem(e) {
     e.preventDefault();   // prevent reloading or form re-direct
-    var text = this.querySelector('[name=item').value;  // this - refers to the FORM element
+    var text = this.querySelector('[name=item]').value;  // this - refers to the FORM element
     var item = {
       text,
       done: false
